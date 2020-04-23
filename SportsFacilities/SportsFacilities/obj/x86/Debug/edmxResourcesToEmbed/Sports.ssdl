@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SportsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SportsModelStoreContainer">
+    <EntitySet Name="booking" EntityType="SportsModel.Store.booking" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="facilities" EntityType="SportsModel.Store.facilities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="members" EntityType="SportsModel.Store.members" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="slot" EntityType="SportsModel.Store.slot" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="slotvsFacilities" EntityType="SportsModel.Store.slotvsFacilities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="users" EntityType="SportsModel.Store.users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BookedMembers" EntityType="SportsModel.Store.BookedMembers" store:Type="Views" store:Schema="dbo" store:Name="BookedMembers">
+      <DefiningQuery>SELECT 
+      [BookedMembers].[MemberId] AS [MemberId], 
+      [BookedMembers].[MemberName] AS [MemberName]
+      FROM [dbo].[BookedMembers] AS [BookedMembers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CancelledBooking" EntityType="SportsModel.Store.CancelledBooking" store:Type="Views" store:Schema="dbo" store:Name="CancelledBooking">
+      <DefiningQuery>SELECT 
+      [CancelledBooking].[BookingId] AS [BookingId], 
+      [CancelledBooking].[MemberName] AS [MemberName], 
+      [CancelledBooking].[StartTime] AS [StartTime], 
+      [CancelledBooking].[EndTime] AS [EndTime], 
+      [CancelledBooking].[FacilityName] AS [FacilityName]
+      FROM [dbo].[CancelledBooking] AS [CancelledBooking]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CurrentBooking" EntityType="SportsModel.Store.CurrentBooking" store:Type="Views" store:Schema="dbo" store:Name="CurrentBooking">
+      <DefiningQuery>SELECT 
+      [CurrentBooking].[BookingId] AS [BookingId], 
+      [CurrentBooking].[MemberName] AS [MemberName], 
+      [CurrentBooking].[StartTime] AS [StartTime], 
+      [CurrentBooking].[EndTime] AS [EndTime], 
+      [CurrentBooking].[FacilityName] AS [FacilityName], 
+      [CurrentBooking].[DateOfUse] AS [DateOfUse]
+      FROM [dbo].[CurrentBooking] AS [CurrentBooking]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="occupancy" EntityType="SportsModel.Store.occupancy" store:Type="Views" store:Schema="dbo" store:Name="occupancy">
+      <DefiningQuery>SELECT 
+      [occupancy].[facilityname] AS [facilityname], 
+      [occupancy].[weekdayname] AS [weekdayname], 
+      [occupancy].[OccupancyRate] AS [OccupancyRate]
+      FROM [dbo].[occupancy] AS [occupancy]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__booking__Facilit__2D27B809" Association="SportsModel.Store.FK__booking__Facilit__2D27B809">
+      <End Role="facilities" EntitySet="facilities" />
+      <End Role="booking" EntitySet="booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__booking__MemberI__2C3393D0" Association="SportsModel.Store.FK__booking__MemberI__2C3393D0">
+      <End Role="members" EntitySet="members" />
+      <End Role="booking" EntitySet="booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__booking__SlotID__2E1BDC42" Association="SportsModel.Store.FK__booking__SlotID__2E1BDC42">
+      <End Role="slot" EntitySet="slot" />
+      <End Role="booking" EntitySet="booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__slotvsFac__Facil__0CBAE877" Association="SportsModel.Store.FK__slotvsFac__Facil__0CBAE877">
+      <End Role="facilities" EntitySet="facilities" />
+      <End Role="slotvsFacilities" EntitySet="slotvsFacilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__slotvsFac__SlotI__0DAF0CB0" Association="SportsModel.Store.FK__slotvsFac__SlotI__0DAF0CB0">
+      <End Role="slot" EntitySet="slot" />
+      <End Role="slotvsFacilities" EntitySet="slotvsFacilities" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="booking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="int" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="FacilityId" Type="int" Nullable="false" />
+    <Property Name="SlotID" Type="int" Nullable="false" />
+    <Property Name="DateOfUse" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="WeekdayName" Type="varchar" MaxLength="11" />
+    <Property Name="confirmed" Type="char" Nullable="false" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="facilities">
+    <Key>
+      <PropertyRef Name="FacilityId" />
+    </Key>
+    <Property Name="FacilityId" Type="int" Nullable="false" />
+    <Property Name="FacilityName" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="members">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="MemberName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address1" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="dateOfBirth" Type="varchar" MaxLength="100" />
+    <Property Name="gender" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="slot">
+    <Key>
+      <PropertyRef Name="SlotId" />
+    </Key>
+    <Property Name="SlotId" Type="int" Nullable="false" />
+    <Property Name="StartTime" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="EndTime" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="slotvsFacilities">
+    <Key>
+      <PropertyRef Name="FacilityId" />
+      <PropertyRef Name="SlotId" />
+    </Key>
+    <Property Name="FacilityId" Type="int" Nullable="false" />
+    <Property Name="SlotId" Type="int" Nullable="false" />
+    <Property Name="Available" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="passwords" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'sports.dbo.BookedMembers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="BookedMembers">
+    <Key>
+      <PropertyRef Name="MemberId" />
+      <PropertyRef Name="MemberName" />
+    </Key>
+    <Property Name="MemberId" Type="int" Nullable="false" />
+    <Property Name="MemberName" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'sports.dbo.CancelledBooking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="CancelledBooking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+      <PropertyRef Name="MemberName" />
+      <PropertyRef Name="StartTime" />
+      <PropertyRef Name="EndTime" />
+      <PropertyRef Name="FacilityName" />
+    </Key>
+    <Property Name="BookingId" Type="int" Nullable="false" />
+    <Property Name="MemberName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="StartTime" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="EndTime" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="FacilityName" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'sports.dbo.CurrentBooking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="CurrentBooking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+      <PropertyRef Name="MemberName" />
+      <PropertyRef Name="StartTime" />
+      <PropertyRef Name="EndTime" />
+      <PropertyRef Name="FacilityName" />
+      <PropertyRef Name="DateOfUse" />
+    </Key>
+    <Property Name="BookingId" Type="int" Nullable="false" />
+    <Property Name="MemberName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="StartTime" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="EndTime" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="FacilityName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="DateOfUse" Type="varchar" Nullable="false" MaxLength="25" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'sports.dbo.occupancy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="occupancy">
+    <Key>
+      <PropertyRef Name="facilityname" />
+    </Key>
+    <Property Name="facilityname" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="weekdayname" Type="varchar" MaxLength="4" />
+    <Property Name="OccupancyRate" Type="int" />
+  </EntityType>
+  <Association Name="FK__booking__Facilit__2D27B809">
+    <End Role="facilities" Type="SportsModel.Store.facilities" Multiplicity="1" />
+    <End Role="booking" Type="SportsModel.Store.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="facilities">
+        <PropertyRef Name="FacilityId" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="FacilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__booking__MemberI__2C3393D0">
+    <End Role="members" Type="SportsModel.Store.members" Multiplicity="1" />
+    <End Role="booking" Type="SportsModel.Store.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="members">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__booking__SlotID__2E1BDC42">
+    <End Role="slot" Type="SportsModel.Store.slot" Multiplicity="1" />
+    <End Role="booking" Type="SportsModel.Store.booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="slot">
+        <PropertyRef Name="SlotId" />
+      </Principal>
+      <Dependent Role="booking">
+        <PropertyRef Name="SlotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__slotvsFac__Facil__0CBAE877">
+    <End Role="facilities" Type="SportsModel.Store.facilities" Multiplicity="1" />
+    <End Role="slotvsFacilities" Type="SportsModel.Store.slotvsFacilities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="facilities">
+        <PropertyRef Name="FacilityId" />
+      </Principal>
+      <Dependent Role="slotvsFacilities">
+        <PropertyRef Name="FacilityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__slotvsFac__SlotI__0DAF0CB0">
+    <End Role="slot" Type="SportsModel.Store.slot" Multiplicity="1" />
+    <End Role="slotvsFacilities" Type="SportsModel.Store.slotvsFacilities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="slot">
+        <PropertyRef Name="SlotId" />
+      </Principal>
+      <Dependent Role="slotvsFacilities">
+        <PropertyRef Name="SlotId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="bookingreceipt2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bookid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CreateNewSlotFacility" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="facilityId" Type="int" Mode="In" />
+    <Parameter Name="slotId" Type="int" Mode="In" />
+  </Function>
+</Schema>

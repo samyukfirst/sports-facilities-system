@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SportsModelStoreContainer" CdmEntityContainer="SportsAllEntities">
+    <EntitySetMapping Name="bookings">
+      <EntityTypeMapping TypeName="SportsModel.booking">
+        <MappingFragment StoreEntitySet="booking">
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+          <ScalarProperty Name="SlotID" ColumnName="SlotID" />
+          <ScalarProperty Name="DateOfUse" ColumnName="DateOfUse" />
+          <ScalarProperty Name="WeekdayName" ColumnName="WeekdayName" />
+          <ScalarProperty Name="confirmed" ColumnName="confirmed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facilities">
+      <EntityTypeMapping TypeName="SportsModel.facility">
+        <MappingFragment StoreEntitySet="facilities">
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="slots">
+      <EntityTypeMapping TypeName="SportsModel.slot">
+        <MappingFragment StoreEntitySet="slot">
+          <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="slotvsFacilities">
+      <EntityTypeMapping TypeName="SportsModel.slotvsFacility">
+        <MappingFragment StoreEntitySet="slotvsFacilities">
+          <ScalarProperty Name="FacilityId" ColumnName="FacilityId" />
+          <ScalarProperty Name="SlotId" ColumnName="SlotId" />
+          <ScalarProperty Name="Available" ColumnName="Available" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="SportsModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="passwords" ColumnName="passwords" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookedMembers">
+      <EntityTypeMapping TypeName="SportsModel.BookedMember">
+        <MappingFragment StoreEntitySet="BookedMembers">
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CancelledBookings">
+      <EntityTypeMapping TypeName="SportsModel.CancelledBooking">
+        <MappingFragment StoreEntitySet="CancelledBooking">
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CurrentBookings">
+      <EntityTypeMapping TypeName="SportsModel.CurrentBooking">
+        <MappingFragment StoreEntitySet="CurrentBooking">
+          <ScalarProperty Name="DateOfUse" ColumnName="DateOfUse" />
+          <ScalarProperty Name="FacilityName" ColumnName="FacilityName" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="occupancies">
+      <EntityTypeMapping TypeName="SportsModel.occupancy">
+        <MappingFragment StoreEntitySet="occupancy">
+          <ScalarProperty Name="OccupancyRate" ColumnName="OccupancyRate" />
+          <ScalarProperty Name="weekdayname" ColumnName="weekdayname" />
+          <ScalarProperty Name="facilityname" ColumnName="facilityname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="members">
+      <EntityTypeMapping TypeName="SportsModel.member">
+        <MappingFragment StoreEntitySet="members">
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

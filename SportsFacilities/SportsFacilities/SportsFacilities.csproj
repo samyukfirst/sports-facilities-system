@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F6B76FC2-B802-4815-B739-DAEDD851C16A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SportsFacilities</RootNamespace>
+    <AssemblyName>SportsFacilities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BookingFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookingFacility.Designer.cs">
+      <DependentUpon>BookingFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookingFacilityControl.cs" />
+    <Compile Include="BookingReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookingReceipt.Designer.cs">
+      <DependentUpon>BookingReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookingReceiptPrint.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookingReceiptPrint.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CancelBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelBooking.Designer.cs">
+      <DependentUpon>CancelBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CancelControl.cs" />
+    <Compile Include="MaintainFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintainFacility.Designer.cs">
+      <DependentUpon>MaintainFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemberLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberLookup.Designer.cs">
+      <DependentUpon>MemberLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OccupancyChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OccupancyChartForm.Designer.cs">
+      <DependentUpon>OccupancyChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OccupancyChartReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OccupancyChartReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OccupancyCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OccupancyCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="facilityController.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain.Designer.cs">
+      <DependentUpon>Maintain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="member.cs" />
+    <Compile Include="MemberBroker.cs" />
+    <Compile Include="memberController.cs" />
+    <Compile Include="MemberInfoCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberInfoCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MembersReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MembersReport.Designer.cs">
+      <DependentUpon>MembersReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LaunchPad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LaunchPad.Designer.cs">
+      <DependentUpon>LaunchPad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OccupancyReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OccupancyReportForm.Designer.cs">
+      <DependentUpon>OccupancyReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchFacility.Designer.cs">
+      <DependentUpon>SearchFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlotLookUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlotLookUpForm.Designer.cs">
+      <DependentUpon>SlotLookUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sports.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="sportsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sportsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SportsDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SportsDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewBooking.Designer.cs">
+      <DependentUpon>ViewBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFacilities.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewFacilities.Designer.cs">
+      <DependentUpon>ViewFacilities.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BookingFacility.resx">
+      <DependentUpon>BookingFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookingReceipt.resx">
+      <DependentUpon>BookingReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookingReceiptPrint.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BookingReceiptPrint.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelBooking.resx">
+      <DependentUpon>CancelBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainFacility.resx">
+      <DependentUpon>MaintainFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberLookup.resx">
+      <DependentUpon>MemberLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OccupancyChartForm.resx">
+      <DependentUpon>OccupancyChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OccupancyChartReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OccupancyChartReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OccupancyCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OccupancyCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain.resx">
+      <DependentUpon>Maintain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberInfoCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberInfoCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MembersReport.resx">
+      <DependentUpon>MembersReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LaunchPad.resx">
+      <DependentUpon>LaunchPad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OccupancyReportForm.resx">
+      <DependentUpon>OccupancyReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SearchFacility.resx">
+      <DependentUpon>SearchFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlotLookUpForm.resx">
+      <DependentUpon>SlotLookUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewBooking.resx">
+      <DependentUpon>ViewBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewFacilities.resx">
+      <DependentUpon>ViewFacilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.Config" />
+    <None Include="Properties\DataSources\SportsAllEntities.datasource" />
+    <None Include="Properties\DataSources\SportsEntities.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="Sports.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Sports.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="sportsDataSet.xsc">
+      <DependentUpon>sportsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="sportsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sportsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sportsDataSet.xss">
+      <DependentUpon>sportsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SportsDataSet1.xsc">
+      <DependentUpon>SportsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SportsDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SportsDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SportsDataSet1.xss">
+      <DependentUpon>SportsDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
